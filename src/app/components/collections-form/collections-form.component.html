@@ -1,0 +1,19 @@
+<div class="collections-form">
+  <div class="calendar-input">
+    <label>Fecha</label>
+    <p-calendar
+      [formControl]="date"
+      dateFormat="dd/mm/yy"
+      [showIcon]="true"
+      lang="es-AR"
+      placeholder="dd/mm/aaaa"
+      [maxDate]="todayDate"
+    ></p-calendar>
+  </div>
+  <p-button
+    label="Buscar"
+    icon="pi pi-search"
+    iconPos="right"
+    (click)="emitSearch()"
+  ></p-button>
+</div>

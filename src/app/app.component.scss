@@ -1,0 +1,24 @@
+.app-container {
+  width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: calc(100vh - 200px);
+}
+
+@media only screen and (max-width: 1068px) {
+  .app-container {
+    width: 612px;
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .app-container {
+    width: 85vw;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .app-container {
+    width: 90vw;
+  }
+}

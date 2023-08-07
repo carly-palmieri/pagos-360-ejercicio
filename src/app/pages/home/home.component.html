@@ -1,0 +1,7 @@
+<h1 class="title">Reportes de Cobranzas</h1>
+<app-collections-form
+  (searchEvent)="getCollections($event)"
+></app-collections-form>
+<app-collections-table
+  [collections]="collectionsReport?.data"
+></app-collections-table>

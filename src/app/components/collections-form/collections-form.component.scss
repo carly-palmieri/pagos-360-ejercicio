@@ -1,0 +1,14 @@
+.collections-form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  padding: 20px 15px;
+  .calendar-input {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+  }
+}
