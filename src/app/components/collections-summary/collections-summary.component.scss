@@ -1,0 +1,20 @@
+.items-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+
+  .summary-item {
+    margin-right: 20px;
+    margin-bottom: 15px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
+
+strong,
+span {
+  font-size: 16px;
+}

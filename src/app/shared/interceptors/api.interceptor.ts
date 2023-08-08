@@ -3,21 +3,23 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ApiInterceptor implements HttpInterceptor {
-
   constructor() {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
     const clonedReq = req.clone({
       setHeaders: {
-        Authorization: `Bearer ${environment.apiKey}`
-      }
+        Authorization: `Bearer ${environment.apiKey}`,
+      },
     });
     return next.handle(clonedReq);
   }

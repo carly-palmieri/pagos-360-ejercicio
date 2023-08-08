@@ -1,13 +1,13 @@
 <div class="collections-form">
   <div class="calendar-input">
-    <label>Fecha</label>
+    <label>Ingresa una fecha</label>
     <p-calendar
       [formControl]="date"
       dateFormat="dd/mm/yy"
       [showIcon]="true"
       lang="es-AR"
       placeholder="dd/mm/aaaa"
-      [maxDate]="todayDate"
+      [maxDate]="yesterdaysDate"
     ></p-calendar>
   </div>
   <p-button
@@ -15,5 +15,7 @@
     icon="pi pi-search"
     iconPos="right"
     (click)="emitSearch()"
+    class="search-button"
+    [disabled]="date.invalid || loading"
   ></p-button>
 </div>

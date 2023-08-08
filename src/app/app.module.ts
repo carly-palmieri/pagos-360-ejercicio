@@ -14,7 +14,12 @@ import { ApiInterceptor } from './shared/interceptors/api.interceptor';
 import { CalendarModule } from 'primeng/calendar';
 import { TableModule } from 'primeng/table';
 import { registerLocaleData } from '@angular/common';
+import { TagModule } from 'primeng/tag';
+import { ToastModule } from 'primeng/toast';
 import localeEs from '@angular/common/locales/es';
+import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+import { CollectionsSummaryComponent } from './components/collections-summary/collections-summary.component';
+import { MessageService } from 'primeng/api';
 registerLocaleData(localeEs);
 
 @NgModule({
@@ -24,7 +29,9 @@ registerLocaleData(localeEs);
     CollectionsTableComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    SpinnerComponent,
+    CollectionsSummaryComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,14 +39,17 @@ registerLocaleData(localeEs);
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastModule,
     CalendarModule,
     TableModule,
-    HttpClientModule
+    HttpClientModule,
+    TagModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
-    { provide: LOCALE_ID, useValue: 'es' }
+    { provide: LOCALE_ID, useValue: 'es' },
+    MessageService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

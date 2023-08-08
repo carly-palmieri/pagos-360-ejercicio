@@ -1,7 +1,21 @@
-<h1 class="title">Reportes de Cobranzas</h1>
+<h1 class="title">Obtener Reportes de Cobranzas</h1>
 <app-collections-form
   (searchEvent)="getCollections($event)"
+  [loading]="loadingCollections"
 ></app-collections-form>
-<app-collections-table
-  [collections]="collectionsReport?.data"
-></app-collections-table>
+<div
+  [ngClass]="{ 'summary-container': collectionsReport }"
+  *ngIf="!loadingCollections"
+>
+  <app-collections-summary
+    [collectionsReport]="collectionsReport"
+  ></app-collections-summary>
+  <app-collections-table
+    [collections]="collectionsReport ? collectionsReport.data : []"
+    [loading]="loadingCollections"
+    [noResults]="collectionsEmpty"
+  ></app-collections-table>
+</div>
+<div class="spinner-container" *ngIf="loadingCollections">
+  <app-spinner></app-spinner>
+</div>

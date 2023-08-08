@@ -1,0 +1,24 @@
+<div *ngIf="collectionsReport">
+  <h2>Resumen de Cobranzas:</h2>
+  <div class="items-container">
+    <div class="summary-item">
+      <p-tag>
+        <i class="pi pi-calendar" style="margin-right: 5px"></i>
+        <strong>Fecha: </strong>
+        <span>{{ collectionsReport.report_date | date : "dd/MM/yyyy" }}</span>
+      </p-tag>
+    </div>
+    <div class="summary-item">
+      <strong>Total cobrado:</strong>
+      ${{ collectionsReport.total_collected }}
+    </div>
+    <div class="summary-item">
+      <strong>Total de comisión:</strong>
+      ${{ collectionsReport.total_gross_fee }}
+    </div>
+    <div class="summary-item">
+      <strong>Total por acreditar:</strong>
+      ${{ collectionsReport.total_net_amount }}
+    </div>
+  </div>
+</div>

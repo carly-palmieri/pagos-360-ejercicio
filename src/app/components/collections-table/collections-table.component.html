@@ -1,42 +1,44 @@
-<div *ngIf="collections && collections.length > 0">
-  <p-table
-    [value]="collections"
-    [paginator]="true"
-    [rows]="5"
-    [showCurrentPageReport]="true"
-    [tableStyle]="{ 'min-width': '50rem' }"
-    [rowsPerPageOptions]="[5, 10, 15]"
+<div class="container">
+  <div *ngIf="collections.length > 0 && !loading">
+    <h2>Detalle de los cobros:</h2>
+    <p-table
+      [value]="collections"
+      [paginator]="true"
+      [rows]="5"
+      [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[5, 10, 15]"
+      responsiveLayout="stack"
+      [breakpoint]="'750px'"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre del pagador</th>
+          <th>Descripción/concepto</th>
+          <th>Medio de pago</th>
+          <th>Importe pagado</th>
+          <th>Fecha de pago</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-data>
+        <tr>
+          <td>{{ data.payer_name }}</td>
+          <td>{{ data.description }}</td>
+          <td>{{ data.channel }}</td>
+          <td>${{ data.amount_paid }}</td>
+          <td>{{ data.payment_date | date : "dd/MM/yyyy" }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div
+    *ngIf="collections.length === 0 && !loading && !noResults"
+    class="empty-state-container"
   >
-    <ng-template pTemplate="header">
-      <tr>
-        <th style="width: 20%">Nombre del pagador</th>
-        <th style="width: 35%">Descripción/concepto</th>
-        <th style="width: 25%">Medio de pago</th>
-        <th style="width: 10%">Importe pagado</th>
-        <th style="width: 10%">Fecha de pago</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-data>
-      <tr>
-        <td>{{ data.payer_name }}</td>
-        <td>{{ data.description }}</td>
-        <td>{{ data.channel }}</td>
-        <td>
-          {{
-            data.amount_paid
-              | currency : "ARS" : "symbol-narrow" : "1.0-2" : "es"
-          }}
-        </td>
-        <td>{{ data.payment_date | date : "dd/MM/yyyy" }}</td>
-      </tr>
-    </ng-template>
-  </p-table>
-</div>
-<div *ngIf="!collections" class="empty-state-container">
-  <img
-    style="height: 300px"
-    src="../../../assets/images/man-search.svg"
-    alt=""
-  />
-  <h3>Ingresa una fecha para buscar</h3>
+    <img src="../../../assets/images/man-search.svg" alt="" />
+    <h3>Ingresa una fecha para buscar</h3>
+  </div>
+
+  <div *ngIf="!loading && noResults" class="no-results-container">
+    <div><i class="pi pi-file"></i> No hay cobros para mostrar.</div>
+  </div>
 </div>
