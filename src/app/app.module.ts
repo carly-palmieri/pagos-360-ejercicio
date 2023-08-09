@@ -17,9 +17,13 @@ import { registerLocaleData } from '@angular/common';
 import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
 import localeEs from '@angular/common/locales/es';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { CollectionsSummaryComponent } from './components/collections-summary/collections-summary.component';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { LoginComponent } from './shared/components/login/login.component';
 registerLocaleData(localeEs);
 
 @NgModule({
@@ -32,6 +36,7 @@ registerLocaleData(localeEs);
     HomeComponent,
     SpinnerComponent,
     CollectionsSummaryComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,11 +49,15 @@ registerLocaleData(localeEs);
     TableModule,
     HttpClientModule,
     TagModule,
+    InputTextModule,
+    PasswordModule,
+    ConfirmPopupModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true },
     { provide: LOCALE_ID, useValue: 'es' },
     MessageService,
+    ConfirmationService,
   ],
   bootstrap: [AppComponent],
 })

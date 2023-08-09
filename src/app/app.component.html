@@ -1,6 +1,11 @@
 <app-header></app-header>
-<div class="app-container">
+
+<div class="app-container" *ngIf="isLoggedIn$ | async">
   <router-outlet></router-outlet>
 </div>
+<div class="login-container" *ngIf="!(isLoggedIn$ | async)">
+  <app-login> </app-login>
+</div>
+
 <app-footer></app-footer>
 <p-toast></p-toast>

@@ -1,5 +1,14 @@
 <nav>
   <div class="logo-section">
-    <img src="../../../../assets/images/logo.png" alt="" srcset="">
+    <img src="../../../../assets/images/logo.png" alt="" srcset="" />
+  </div>
+  <div class="icon-container">
+    <p-toast></p-toast>
+    <p-confirmPopup></p-confirmPopup>
+    <i
+      class="pi pi-sign-out"
+      (click)="confirmLogout($event)"
+      *ngIf="isLoggedIn$ | async"
+    ></i>
   </div>
 </nav>

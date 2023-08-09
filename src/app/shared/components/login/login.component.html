@@ -1,0 +1,55 @@
+<div class="login-form">
+  <h2>Inicia sesión</h2>
+  <form [formGroup]="loginForm">
+    <div class="input-container">
+      <span class="p-input-icon-left">
+        <i class="pi pi-envelope"></i>
+        <input
+          type="text"
+          pInputText
+          placeholder="Correo electrónico"
+          formControlName="email"
+        />
+      </span>
+      <small style="height: 15px"
+        ><span
+          [hidden]="
+            loginForm.controls['email'].valid ||
+            !loginForm.controls['email'].dirty
+          "
+        >
+          Ingresa un correo válido
+        </span>
+      </small>
+    </div>
+
+    <div class="input-container">
+      <p-password
+        formControlName="password"
+        [toggleMask]="true"
+        [feedback]="false"
+        placeholder="Contraseña"
+      ></p-password>
+      <small style="height: 30px">
+        <span
+          [hidden]="
+            loginForm.controls['password'].valid ||
+            !loginForm.controls['password'].dirty
+          "
+        >
+          Mínimo 8 caracteres, una letra minúscula, una mayúscula y un número
+        </span>
+      </small>
+    </div>
+    <p-button
+      label="Ingresar"
+      class="submit-button"
+      [disabled]="loginForm.invalid"
+      (click)="logIn()"
+    ></p-button>
+  </form>
+  <span class="form-description"
+    >Este es un inicio de sesión simulado, ingrese valores que cumplan el patron
+    requerido.</span
+  >
+</div>
