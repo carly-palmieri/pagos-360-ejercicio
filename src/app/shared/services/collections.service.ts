@@ -4,11 +4,10 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CollectionsService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getCollectionByDate(date: string): Observable<any> {
     const url = `${environment.apiUrl}/report/collection/${date}`;

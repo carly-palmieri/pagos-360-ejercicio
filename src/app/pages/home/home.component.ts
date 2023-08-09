@@ -1,5 +1,5 @@
 import { CollectionsReport } from 'src/app/shared/interfaces/ICollections';
-import { CollectionsService } from './../../services/collections.service';
+import { CollectionsService } from '../../shared/services/collections.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastService } from '../../shared/services/toast.service';
 
