@@ -1,3 +1,8 @@
 {
-  "recommendations": ["angular.ng-template"]
+  "recommendations": [
+    "angular.ng-template", // Resaltado de sintaxis para plantillas de Angular
+    "dbaeumer.vscode-eslint", // Integración de ESLint
+    "esbenp.prettier-vscode", // Integración de Prettier
+    "johnpapa.angular-essentials" // Conjunto de extensiones recomendadas para Angular
+  ]
 }
