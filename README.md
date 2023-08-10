@@ -18,7 +18,7 @@ Esta es una aplicación web construida con Angular versión 16.1.8 que interact�
 1. Clona este repositorio:
 
 ```bash
-git clone https://github.com/tu-nombre-de-usuario/pagos-360-app.git
+git clone https://github.com/carly-palmieri/pagos-360-ejercicio.git`
 ```
 
 2. Ingresa al directorio del proyecto:
